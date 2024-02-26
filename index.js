@@ -8,7 +8,7 @@ for (let i = 0; i < allElements.length; i++) {
     clicks.addEventListener('click',(e) =>{
 const name = clicks.childNodes[3].childNodes[3].textContent;
 const price = clicks.childNodes[3].childNodes[5].textContent.split(' ')[1];
-console.log(name);
+// console.log(name);
 // const pareseInt =parseInt(price)
 
 
@@ -33,21 +33,7 @@ callNamePrice.appendChild(div);
 const totalP =document.getElementById('totalPrice');
 store = store + parseInt(price);
 totalP.innerText =store;
-
-
-
-// 
-// // console.log(btn);
-
-//    
-//     const dis = document.getElementById('discountPrice');
-// //   console.log(typeof dis);
-// // const ff = parseInt(dis)
-//             const discount = totalP * 0.2;
-//             console.log(typeof discount);
-//             dis.textContent = discount;
-        
-    
+  
     })
 }
 
@@ -59,7 +45,7 @@ const modify =input.split(' ').join('').toUpperCase();
 // console.log(modify);
 if (store > 200) {
     const dis = document.getElementById('discountPrice');
-    if (modify == "SELL20") {
+    if (modify == "SELL200") {
         const discount = store * 0.2;
         const finalPrice =discount.toFixed(2);
         dis.innerText =finalPrice;
@@ -68,11 +54,14 @@ if (store > 200) {
         // console.log(totalPrices);
         const total = document.getElementById('total');
         total.innerText = totalPrices;
+        document.getElementById('input-field').value="";
     }else{
         alert("invalid coupon price")
+        document.getElementById('input-field').value="";
     }
 }else{
     alert('minimum purchase price $ 200')
+    document.getElementById('input-field').value="";
 }
 
 
